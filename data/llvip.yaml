@@ -1,0 +1,6 @@
+path: C:/Users/Alaster/rgb-thermal-fusion-detection/data/LLVIP
+train: infrared/train
+val:   infrared/test
+
+nc: 1
+names: ['person']
