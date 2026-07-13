@@ -172,14 +172,12 @@ def prepare_flir():
 
         print(f"  FLIR {split}: {copied_img} images, {converted_lbl} labels converted")
 
-# ══════════════════════════════════════════════════════════════════════════════
 # YAML config files for YOLOv8
-# ══════════════════════════════════════════════════════════════════════════════
 def write_yaml_files():
     llvip_yaml = PROJECT_ROOT / "data" / "llvip.yaml"
     llvip_yaml.write_text(f"""path: {LLVIP_OUT.as_posix()}
-train: infrared/train
-val:   infrared/test
+train: visible/images/train
+val:   visible/images/test
 
 nc: 1
 names: ['person']
@@ -188,14 +186,14 @@ names: ['person']
 
     flir_yaml = PROJECT_ROOT / "data" / "flir.yaml"
     flir_yaml.write_text(f"""path: {FLIR_OUT.as_posix()}
-train: infrared/train
-val:   infrared/test
+train: visible/images/train
+val:   visible/images/test
 
 nc: 3
 names: ['person', 'car', 'bicycle']
 """)
     print(f"  Written {flir_yaml}")
-
+    
 # ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
     prepare_llvip()
