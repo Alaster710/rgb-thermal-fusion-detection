@@ -1,0 +1,6 @@
+path: C:/Users/Alaster/rgb-thermal-fusion-detection/data/FLIR
+train: visible/images/train
+val:   visible/images/test
+
+nc: 3
+names: ['person', 'car', 'bicycle']
