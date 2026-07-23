@@ -1,0 +1,74 @@
+[
+  {
+    "name": "llvip_rgb_baseline",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 24.85,
+    "latency_std": 2.95,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "llvip_thermal_baseline",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 25.92,
+    "latency_std": 2.97,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "flir_rgb_baseline",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 26.71,
+    "latency_std": 1.61,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "flir_thermal_baseline",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 26.19,
+    "latency_std": 0.5,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "llvip_early_fusion",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 27.69,
+    "latency_std": 0.95,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "flir_early_fusion",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 26.52,
+    "latency_std": 1.09,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "llvip_intermediate_fusion",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 27.73,
+    "latency_std": 2.34,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  },
+  {
+    "name": "flir_intermediate_fusion",
+    "pt_size_mb": 5.95,
+    "onnx_size_mb": 11.7,
+    "latency_ms": 26.07,
+    "latency_std": 2.19,
+    "params_m": 3.01,
+    "flops_g": 4.1
+  }
+]
