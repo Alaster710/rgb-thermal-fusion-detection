@@ -95,12 +95,12 @@ if __name__ == "__main__":
     print("   4. FLIR Thermal-only")
 
     # 1. LLVIP RGB-only
-   # yaml = make_modal_yaml("llvip", "visible")
-    # train_baseline("llvip_rgb_only", yaml)
+    yaml = make_modal_yaml("llvip", "visible")
+    train_baseline("llvip_rgb_only", yaml)
 
     # 2. LLVIP Thermal-only
-   # yaml = make_modal_yaml("llvip", "infrared")
-    # train_baseline("llvip_thermal_only", yaml)
+    yaml = make_modal_yaml("llvip", "infrared")
+    train_baseline("llvip_thermal_only", yaml)
 
     # 3. FLIR RGB-only
     yaml = make_modal_yaml("flir", "visible")
