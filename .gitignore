@@ -1,4 +1,4 @@
-# Dataset images (too large for GitHub)
+# Dataset images
 data/LLVIP/
 data/FLIR/
 
@@ -8,7 +8,11 @@ __pycache__/
 *.pyo
 .env
 
-# Model weights
+# Datasets
+data/LLVIP/
+data/FLIR/
+
+# Model weights and exports
 *.pt
 *.onnx
 *.engine
@@ -16,5 +20,22 @@ __pycache__/
 # Training runs
 runs/
 
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Cache files
+*.cache
+
 # VS Code
 .vscode/
+
+# Quantized models
+models/quantized/
+models/onnx_exports/
+models/baselines/
+models/early_fusion/
+models/intermediate_fusion/
+models/late_fusion/
