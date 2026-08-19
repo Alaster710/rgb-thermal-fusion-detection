@@ -66,20 +66,20 @@ def prepare_llvip():
         converted_lbl = 0
 
         for stem in stems:
-            # ── copy infrared image ──
+            # copy infrared image
             src_ir = Path(LLVIP_ROOT) / "infrared" / split / f"{stem}.jpg"
             dst_ir = LLVIP_OUT / "infrared" / split / f"{stem}.jpg"
             if src_ir.exists():
                 shutil.copy2(src_ir, dst_ir)
                 copied_img += 1
 
-            # ── copy visible image ──
+            # copy visible image
             src_vis = Path(LLVIP_ROOT) / "visible" / split / f"{stem}.jpg"
             dst_vis = LLVIP_OUT / "visible" / split / f"{stem}.jpg"
             if src_vis.exists():
                 shutil.copy2(src_vis, dst_vis)
 
-            # ── convert XML label ──
+            # convert XML label
             xml_path = ann_dir / f"{stem}.xml"
             dst_lbl  = LLVIP_OUT / "labels" / split / f"{stem}.txt"
             if xml_path.exists():
@@ -91,9 +91,7 @@ def prepare_llvip():
 
         print(f"  LLVIP {split}: {copied_img} images, {converted_lbl} labels converted")
 
-# ══════════════════════════════════════════════════════════════════════════════
 # FLIR  — COCO JSON  →  YOLO txt
-# ══════════════════════════════════════════════════════════════════════════════
 
 # FLIR classes we care about (from the aligned dataset)
 FLIR_CLASS_MAP = {1: 0, 2: 1, 3: 2}   # person→0, car→1, bicycle→2
@@ -141,20 +139,20 @@ def prepare_flir():
             img_w = img_info["width"]
             img_h = img_info["height"]
 
-            # ── copy thermal image ──
+            # copy thermal image
             src_th = Path(FLIR_ROOT) / "thermal" / split / fname
             dst_th = FLIR_OUT / "infrared" / split / fname
             if src_th.exists():
                 shutil.copy2(src_th, dst_th)
                 copied_img += 1
 
-            # ── copy visible image ──
+            # copy visible image
             src_vis = Path(FLIR_ROOT) / "visible" / split / fname
             dst_vis = FLIR_OUT / "visible" / split / fname
             if src_vis.exists():
                 shutil.copy2(src_vis, dst_vis)
 
-            # ── convert annotations ──
+            # convert annotations
             dst_lbl = FLIR_OUT / "labels" / split / f"{stem}.txt"
             anns = ann_by_img.get(img_id, [])
             lines = []
@@ -194,7 +192,7 @@ names: ['person', 'car', 'bicycle']
 """)
     print(f"  Written {flir_yaml}")
     
-# ══════════════════════════════════════════════════════════════════════════════
+
 if __name__ == "__main__":
     prepare_llvip()
     prepare_flir()

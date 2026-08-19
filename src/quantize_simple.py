@@ -6,7 +6,7 @@ import time
 
 PROJECT_ROOT = Path(__file__).parent.parent
 
-# quantize just the best single model — llvip thermal baseline
+# quantize just the best single model, llvip thermal baseline
 pt_path  = PROJECT_ROOT / "models" / "baselines" / "llvip_thermal_only" / "weights" / "best.pt"
 yaml_path = PROJECT_ROOT / "data" / "llvip_infrared.yaml"
 

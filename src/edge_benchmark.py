@@ -18,15 +18,8 @@ IMG_SIZE      = 640
 WARMUP_RUNS   = 10    # warmup runs before timing to stabilise GPU/CPU
 TIMING_RUNS   = 100   # number of runs to average latency over
 
-# STEP 1 — EXPORT MODEL TO ONNX
-#
-# Why ONNX?
-# ONNX (Open Neural Network Exchange) is a universal format that
-# edge runtimes understand. Converting from PyTorch .pt to .onnx:
-# - Removes Python dependency — can run on any device
-# - Enables hardware-specific optimisations
-# - Allows fair cross-platform benchmarking
-# - Is the standard format for edge AI deployment
+# STEP 1: EXPORT MODEL TO ONNX
+
 
 def export_to_onnx(model_path, onnx_path, img_size=640):
     """
@@ -59,7 +52,7 @@ def export_to_onnx(model_path, onnx_path, img_size=640):
         return False
 
 
-# STEP 2 — MEASURE MODEL SIZE
+# STEP 2: MEASURE MODEL SIZE
 #
 # Model size in MB directly determines:
 # - How much flash/storage is needed on edge device
@@ -73,13 +66,13 @@ def get_model_size_mb(model_path):
     return round(size_mb, 2)
 
 
-# STEP 3 — MEASURE INFERENCE LATENCY
+# STEP 3: MEASURE INFERENCE LATENCY
 
 # Latency (ms per image) determines real-time capability.
 # We use ONNX Runtime for benchmarking because:
 # - It's the standard edge inference engine
 # - More representative of real deployment than PyTorch
-# - Hardware-agnostic — same results across different devices
+# - Hardware-agnostic, same results across different devices
 
 # We measure on CPU specifically because:
 # Edge devices typically don't have discrete GPUs
@@ -142,7 +135,7 @@ def measure_latency(onnx_path, img_size=640, warmup=10, runs=100):
     return mean_ms, std_ms
 
 
-# STEP 4 — COUNT PARAMETERS AND ESTIMATE FLOPs
+# STEP 4: COUNT PARAMETERS AND ESTIMATE FLOPs
 
 # Parameters: number of learnable weights in the model
 # FLOPs: floating point operations per inference
@@ -185,7 +178,7 @@ def count_params_and_flops(model_path, img_size=640):
 
 
 
-# STEP 5 — FULL BENCHMARK PIPELINE
+# STEP 5:FULL BENCHMARK PIPELINE
 # Runs all measurements for one model and returns results dict
 
 def benchmark_model(name, pt_path, onnx_dir):

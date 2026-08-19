@@ -15,7 +15,7 @@ IMG_SIZE   = 640       # standard YOLO input size
 DEVICE     = 0         
 
 
-# HELPER — modify YAML to point at correct image folder
+# HELPER, modify YAML to point at correct image folder
 def make_modal_yaml(dataset, modal):
     base_yaml = DATA_DIR / f"{dataset}.yaml"
     out_yaml  = DATA_DIR / f"{dataset}_{modal}.yaml"
